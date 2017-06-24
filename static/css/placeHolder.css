@@ -1,0 +1,20 @@
+.inputEnter :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color: #fff;
+    font-size: 0.36rem;
+}
+
+.inputEnter::-moz-placeholder { /* Mozilla Firefox 19+ */
+     color: #fff;
+    font-size: 0.36rem;
+}
+
+.inputEnter :-ms-input-placeholder{
+     color: #fff;
+    font-size: 0.36rem;
+}
+
+.inputEnter ::-webkit-input-placeholder{
+    color: #fff;
+   font-size: 0.36rem;
+}
+
