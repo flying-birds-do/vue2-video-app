@@ -2,7 +2,7 @@
 	<div class="original_home">
 		<div class="top_img_box">
 			<v-header :tilte='tilte' :isShow='isShow'></v-header>
-			<tab-cut></tab-cut>
+			<tab-cut v-on:cutCurrent="current"></tab-cut>
 			<hot-tittle :urlText='urlText'></hot-tittle>
 		</div>
 		<cirle></cirle>
