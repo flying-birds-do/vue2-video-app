@@ -10,11 +10,11 @@
 		<div class="choice_like">
 			<p>来选择喜欢的视频类型吧 ...</p>
 			<ul class="clearfix">
-				<li class="" v-for ="(item,index) in items" :class="{choice: defaultArr}" @click="choice($event, index)">
+				<li class="" v-for ="(item,index) in items"  @click="choice($event, index)" :class="[(index === default1)?'choice1': '']">
 					<p class="cirle" :class="{choice: false}"><i :class="item.Mainland"></i></p>
 					<p>{{item.text}}</p>
 					<p>{{item.chese}}</p>
-					<input type="checkbox" class="mask_choice" v-model="defaultArr" value="choice"></i>
+					<input type="checkbox" class="mask_choice" v-model="arr" value=""></i>
 				</li> 
 			</ul>
 			<button class="choice_complate" @click="enterHome">我选完了</button>
@@ -72,18 +72,31 @@
 					chese: '大陆'
 					}
 					],
-					defaultArr: []
+					arr: [],
+					default1: false
 				}
 			},
 		created () {
+			console.log(this.arr)
 		},
 		methods: {
 			enterHome () {
 				this.$router.push({path: '/home/'})
 			},
 			choice (el, index) {
-				console.log(el.target)
-				console.log(el)
+				if (this.arr.indexOf(index) === -1) {
+				this.arr.push(index)
+				console.log(index)
+				// this.default1 = index
+				} else {
+					for (var i = 0; i < this.arr.length; i++) {
+						if (this.arr[i] === index) {
+							this.arr.splice(i, 1)
+							break
+						}
+					}
+				}
+				console.log(this.arr)
 			}
 		}
 	}
