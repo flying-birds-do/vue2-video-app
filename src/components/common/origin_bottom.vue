@@ -1,11 +1,7 @@
 <template>
 	<div>
 		<div class="origin_banner">
-			<ul>
-				<li><img :src="origin_banner1"></li>
-				<li><img :src="origin_banner2"></li>
-				<li><img :src="origin_banner3"></li>
-			</ul>
+			<m-swiper :data="swiperList" :loop="true" :initIndex="1" :auto="3000"></m-swiper>
 			<div class="opacity_mask clearfix">
 				<div class="opacity_mask_left fl">
 					<h3>正在旅途..</h3>
@@ -19,30 +15,41 @@
 		</div>
 		<div class="segmentation_line"><img src="../assets/images/list_img1_03.png"></div>
 		<div class="moreInfo">
-			<moreInfo>
-			</moreInfo>
 			<moreInfo></moreInfo>
-			<moreInfo></moreInfo>
-			<moreInfo :bgcolor="bgcolor"></moreInfo>
 		</div>
 	</div>
 </template>
 <script type="text/javascript">
 	import moreInfo from '../common/origin_more_info'
+	import enshrine from '../common/enshrine'
+	import star from '../common/start'
 	export default {
 		data () {
 			return {
-				origin_banner1: '../../../static/img/origin_banner1.png',
-				origin_banner2: '../../../static/img/origin_banner2.png',
-				origin_banner3: '../../../static/img/origin_banner3.png'
+				swiperList: [
+				{
+				img: '../../../static/img/origin_banner1.png'
+				},
+				{
+				img: '../../../static/img/origin_banner2.png'
+				},
+				{
+				img: '../../../static/img/origin_banner3.png'
+				}]
 			}
 		},
 		components: {
-			moreInfo
+			moreInfo,
+			enshrine,
+			star
+
 		}
 	}
 </script>
 <style type="text/css">
+	.segmentation_line {
+		margin-top: 1.2rem;
+	}
 	.moreInfo {
 		margin-top: 0.3rem;
 		margin-bottom: 1.2rem;
@@ -62,50 +69,29 @@
 	}
 	
 	.origin_banner {
-		padding: 0 0.3rem;
+		/* padding: 0 0.3rem; */
 		width: 100%;
 		height: 4.86rem;
-		position: relative;
-		margin-top: 1rem;
+		/* position: relative; */
+		/* margin-top: 1rem; */
 	}
 	.origin_banner ul {
 		width: 100%;
 		height: 100%;
 	}
-	.origin_banner ul li {
+/* 	.origin_banner ul li {
 		width: 100%;
 		height: 100%;
 		position: absolute;
 		
-	}
-	.origin_banner ul li:first-child {
-		z-index: 10;
-		left: 0.3rem;
-		bottom: 0;
-		width: 6.3rem;
-	}
-	.origin_banner ul li:nth-child(2) {
-		z-index: 8;
-		background: green;
-		left: 0.5rem;
-		bottom: 0.3rem;
-		width: 6.4rem;
-	}
-	.origin_banner ul li:nth-child(3) {
-		z-index: 6;
-		background: purple;
-		left: 0.7rem;
-		bottom: 0.6rem;
-		width: 6.5rem;
-	}
+	} */
 	.opacity_mask {
 		position: absolute;
-		bottom: 0;
 		left: 0;
-		height: 1.3rem;
 		background: rgba(0,0,0,0.8);
 		z-index: 20;
 		width: 100%;
+		height: 1.3rem;
 	}
 	.opacity_mask h3{
 		font-size: 0.3rem;

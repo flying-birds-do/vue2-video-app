@@ -13,7 +13,7 @@
         <span class="comfi_double">{{comfi_double}}</span>
         </p>
           <button type="submit"  class="regsiter" @click="resigSucess"></button>
-          <router-link to="/login"><button class="Tel"></button></router-link>
+          <router-link to="/"><button class="Tel"></button></router-link>
       </form>
   </div>
   <alert-text :conShow='content_show' :info_tip='info_tip'></alert-text>
@@ -91,6 +91,8 @@
     width: 100%;
     height: 100%;
     background-size: 100%;
+    z-index: 100;
+    position: relative;
 }
 .loginBG .headImg{
     margin:0 auto;

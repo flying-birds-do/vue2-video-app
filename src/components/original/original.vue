@@ -2,13 +2,11 @@
 	<div class="original_home">
 		<div class="top_img_box">
 			<v-header :tilte='tilte' :isShow='isShow'></v-header>
-			<tab-cut v-on:cutCurrent="current"></tab-cut>
+			<tab-cut v-on:cutstatus="status"></tab-cut>
 			<hot-tittle :urlText='urlText'></hot-tittle>
 		</div>
-		<cirle></cirle>
-		<originalBottom v-show="false"></originalBottom>
-		<bottom-nav></bottom-nav>
-
+		<cirle v-show="currentView1"></cirle>
+		<original-bottom  v-show="currentView"></original-bottom>
 	</div>
 </template>
 <script type="text/javascript">
@@ -18,7 +16,6 @@
 	import star from '../common/start'
 	import enshrine from '../common/enshrine'
 	import moreInfo from '../common/origin_more_info'
-	import bottomNav from '../common/bottom_nav'
 	import cirle from '../common/cirle'
 	import originalBottom from '../common/origin_bottom'
 	export default {
@@ -26,8 +23,22 @@
 		return {
 			tilte: 'MOLI 原创',
 			isShow: true,
-			urlText: '../../../static/img/popular_title.png'
+			urlText: '../../../static/img/popular_title.png',
+			currentView1: false,
+            currentView: true
 		}
+		},
+		methods: {
+			status () {
+				console.log(arguments[0])
+				if (arguments[0] === 'origin_tab') {
+					this.currentView1 = false
+					this.currentView = true
+				} else {
+					this.currentView1 = true
+					this.currentView = false
+				}
+         }
 		},
 		components: {
 			vHeader,
@@ -36,7 +47,6 @@
 			star,
 			enshrine,
 			moreInfo,
-			bottomNav,
 			originalBottom,
 			cirle
 		}

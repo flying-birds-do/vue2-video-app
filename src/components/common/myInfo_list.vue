@@ -6,7 +6,6 @@
 				<p class="fl">{{todo.text}}</p>
 			</div>
 			<div class="myInfo_list_right  ">
-				<span class="hot_cirle">3</span>
 				<span class="icon_arrow">
 					<img :src="todo.list_arrow">
 				</span>

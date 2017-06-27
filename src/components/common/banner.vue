@@ -1,9 +1,11 @@
 <template>
 	<div class="banner_conent">
 		<ul class="clearfix">
-			<li><img src="../assets/images/banner1.png"></li>
-			<li><img src="../assets/images/banner2.png"></li>
-			<li><img src="../assets/images/banner3.png"></li>
+			<li v-for="(item, index) in items" :class="{ 'active': index === swipe.activeIndex }" 
+          v-for="(contact, index) in contacts"
+          @click="turnTo(index)"><img :src="item.vartar"></li>
+			<!-- <li><img src="../assets/images/banner2.png"></li> -->
+			<!-- <li><img src="../assets/images/banner3.png"></li> -->
 		</ul>
 		<ol class="clearfix">
 			<li></li>
@@ -15,52 +17,45 @@
 	</div>
 </template>
 <script type="text/javascript">
+	export default {
+		props: ['items'],
+		data () {
+			return {
+			}
+		},
+		methods: {
+		}
+	}
 </script>
 <style type="text/css">
 	.banner_content {
 		width: 100%;
-		overflow: hidden;
 	}
 	.banner_conent {
 		position: relative;
 		margin-top: 0.73rem;
+		overflow: hidden;
 	}
 	.banner_conent ul {
-	   width: 100%;
-	   position: relative;
-	   height: 5rem;
+		width: 500%;
+		position: relative;
+		height: 4.4rem;
 		padding: 0 0.3rem;
 
 	}
 	.banner_conent ul li {
 		float: left;
-		width: 7.37rem;
+		width:20%;
 		height: 4.37rem;
+		float: left;
+	}
+
+	.banner_conent ol {
 		position: absolute;
-		left: 0.07rem;
+		right: 0.3rem;
+		bottom: 0.6rem;
+		z-index: 20
 	}
-	.banner_conent ul li:first-child {
-		z-index: 10
-	}
-	.banner_conent ul li:nth-child(2) {
-		z-index: 8;
-		width: 6.65rem;
-		height: 3.35rem;
-		left: 0.3rem;
-		top: -0.05rem;
-	}
-	.banner_conent ul li:nth-child(3) {
-		width: 6.3rem;
-		height: 3.23rem;
-		top: -0.3rem;
-		left: 0.5rem;
-	}
-    .banner_conent ol {
-    	position: absolute;
-    	right: 0.3rem;
-    	bottom: 0.6rem;
-    	z-index: 20
-    }
 	.banner_conent ol li {
 		width: 6px;
 		height: 6px;
@@ -73,3 +68,4 @@
 		background: #e66524;
 	}
 </style>
+

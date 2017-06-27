@@ -25,18 +25,16 @@
 			</div>
 			<my-info></my-info>
 		</div>
-		<bottom-nav></bottom-nav>
+		<!-- <bottom-nav></bottom-nav> -->
 	</div>
 </template>
 <script type="text/javascript">
 	import star from '../common/start'
 	import myInfo from '../common/myInfo_list'
-	import bottomNav from '../common/bottom_nav'
 	export default {
 		components: {
 			star,
-			myInfo,
-			bottomNav
+			myInfo
 		}
 	}
 </script>

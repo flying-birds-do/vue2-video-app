@@ -1,7 +1,7 @@
 <template>
 	<div class="warp_search">
 		<header class="search">
-			<span class="icon_back"></span>
+			<span class="icon_back" @click="back"></span>
 			<input type="text" name="" placeholder="输入喜欢的视频">
 			<span class="icon_search"></span>
 		</header>
@@ -12,6 +12,11 @@
 <script type="text/javascript">
 	import rember from './search_rember'
 	export default {
+		methods: {
+			back () {
+				window.history.go(-1)
+			}
+		},
 		components: {
 			rember
 		}

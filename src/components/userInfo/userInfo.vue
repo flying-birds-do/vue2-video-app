@@ -10,10 +10,11 @@
 		<div class="choice_like">
 			<p>来选择喜欢的视频类型吧 ...</p>
 			<ul class="clearfix">
-				<li class="" v-for ="item in items">
+				<li class="" v-for ="(item,index) in items" :class="{choice: defaultArr}" @click="choice($event, index)">
 					<p class="cirle" :class="{choice: false}"><i :class="item.Mainland"></i></p>
 					<p>{{item.text}}</p>
 					<p>{{item.chese}}</p>
+					<input type="checkbox" class="mask_choice" v-model="defaultArr" value="choice"></i>
 				</li> 
 			</ul>
 			<button class="choice_complate" @click="enterHome">我选完了</button>
@@ -29,57 +30,49 @@
 					Mainland: 'icon_Romance',
 					text: 'Romance',
 					chese: '言情'
-
 					},
 					{
 					Mainland: 'icon_Musical',
 					text: 'Comedy',
 					chese: '喜剧'
-
 					},
 					{
 					Mainland: 'icon_Comedy',
 					text: 'Romance',
 					chese: '动作'
-
 					},
 					{
 					Mainland: 'icon_Action',
 					text: 'Action',
 					chese: '卡通'
-
 					},
 					{
 					Mainland: 'icon_Cartoon',
 					text: 'Dracula',
 					chese: '恐怖'
-
 					},
 					{
 					Mainland: 'icon_Dracula',
 					text: 'Occident',
 					chese: '欧美'
-
 					},
 					{
 					Mainland: 'icon_japan',
 					text: 'Japan',
 					chese: '日韩'
-
 					},
 					{
 					Mainland: 'icon_Mainland',
 					text: 'Main',
 					chese: '珠海'
-
 					},
 					{
 					Mainland: 'icon_Mainland',
 					text: 'Mainland',
 					chese: '大陆'
-
 					}
-					]
+					],
+					defaultArr: []
 				}
 			},
 		created () {
@@ -87,16 +80,31 @@
 		methods: {
 			enterHome () {
 				this.$router.push({path: '/home/'})
+			},
+			choice (el, index) {
+				console.log(el.target)
+				console.log(el)
 			}
 		}
 	}
 </script>
 <style type="text/css">
+	.mask_choice  {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		background: rgba(0, 0, 0, 0);
+		z-index: 20;
+		left: 0;
+		top: 0;
+	}
 	.bg_choice {
 		background: #1a1b28;
 		height: 100%;
 		width: 100%;
 		overflow: hidden;
+		z-index: 100;
+        position: relative;
 	}
 	.resigin_sucess {
 		margin: auto;
@@ -148,6 +156,7 @@
 		margin-bottom: 0.42rem;
 		float: left;
 		width: 33.33%;
+		position: relative;
 	}
 	.ml_7{
 		margin-left: 7%;
@@ -158,7 +167,7 @@
 	.choice_like ul li > p {
 		margin: 0 auto;
 	}
-	.choice_like ul li > p.cirle.choice {
+	.choice_like ul li.choice1 > p.cirle {
 		background: #f7df13;
 		margin: 0 auto;
 	}
@@ -208,41 +217,41 @@
 		background: url('../assets/images/Romance.png') no-repeat;
 		background-size: 100%;
 	}
-	.choice_like ul li > p.cirle.choice .icon_Musical{
+	.choice_like ul li.choice > p.cirle .icon_Musical{
 		background: url('../assets/images/Musical.png') no-repeat;
 		background-size: 100%;
 	}
-	.choice_like ul li > p.cirle.choice .icon_Comedy{
+	.choice_like ul li.choice > p.cirle .icon_Comedy{
 		background: url('../assets/images/Comedy.png') no-repeat;
 		background-size: 100%;
 		width: 0.46rem;
 		height: 0.67rem;
 	}
-	.choice_like ul li > p.cirle.choice .icon_Action{
+	.choice_like ul li.choice1 > p.cirle .icon_Action{
 		background: url('../assets/images/Action.png') no-repeat;
 		background-size: 100%;
 	}
-	.choice_like ul li > p.cirle.choice .icon_Cartoon{
+	.choice_like ul li.choice1 > p.cirle .icon_Cartoon{
 		background: url('../assets/images/Cartoon.png') no-repeat;
 		background-size: 100%;
 		width: 0.44rem;
 		height: 0.66rem;
 	}
-	.choice_like ul li > p.cirle.choice .icon_Dracula{
+	.choice_like ul li.choice1 > p.cirle.choice .icon_Dracula{
 		background: url('../assets/images/Dracula.png') no-repeat;
 		background-size: 100%;
 	}
-	.choice_like ul li > p.cirle.choice .icon_Occident{
+	.choice_like ul li.choice1  > p.cirle.icon_Occident{
 		background: url('../assets/images/unOccident.png') no-repeat;
 		background-size: 100%;
 		width: 0.46rem;
 		height: 0.67rem;
 	}
-	 .choice_like ul li > p.cirle.choice .icon_japan{
+	 .choice_like ul li.choice1 > p.cirle .icon_japan{
 		background: url('../assets/images/cart.png') no-repeat;
 		background-size: 100%;
 	}
-	.choice_like ul li > p.cirle.choice .icon_Mainland{
+	.choice_like ul li.choice1 > p.cirle .icon_Mainland{
 		background: url('../assets/images/Mainland.png') no-repeat;
 		background-size: 100%;
 	} 

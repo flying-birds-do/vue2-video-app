@@ -91,7 +91,7 @@
 }
 #app{
    width: 100%;
-   height: 100%;  
+   /* height: 100%;   */
     margin:0;
     overflow: hidden;
 }
@@ -100,6 +100,8 @@
     width: 100%;
     height: 100%;
     background-size: 100%;
+    z-index: 100;
+    position: relative;
 }
 .loginBG .headImg{
     margin:0 auto;

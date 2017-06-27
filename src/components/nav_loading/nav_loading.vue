@@ -3,13 +3,6 @@
 		<div class="show_banner">
 			<v-header :tilte='tilte'></v-header>
 			<img src="../assets/images/banner_text.png" class="banner_text">
-			<ol class="clearfix">
-				<li></li>
-				<li></li>
-				<li></li>
-				<li class="active"></li>
-				<li></li>
-			</ol>
 		</div>
 		<div class="all_class">
 			<hot-tittle :urlText='urlText1'></hot-tittle>
@@ -24,7 +17,7 @@
 			<hot-tittle :urlText='urlText2'></hot-tittle>
 		</div>
 		<originalBottom></originalBottom>
-		<bottomNav></bottomNav>
+		<!-- <bottomNav></bottomNav> -->
 	</div>
 </template>
 <script type="text/javascript">

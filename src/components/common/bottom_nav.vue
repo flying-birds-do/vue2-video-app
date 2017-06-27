@@ -1,10 +1,10 @@
 <template>
 	<div class="bottom_nav">
 		<ul class="clearfix">
-			<router-link to="/home"><li :class="chioce"><i class="icon_home"></i></li></router-link>
-			<router-link to="/navLoad"><li><i class="icon_classification"></i></li></router-link>
-			<router-link to="/original"><li><i class="icon_microphone"></i></li></router-link>
-			<router-link to="/myInfo"><li><i class="icon_people"></i></li></router-link>
+			<li class="chioce"><router-link to="/home"><i class="icon_home"></i></router-link></li>
+			<li><router-link to="/navLoad"><i class="icon_classification"></i></router-link></li>
+		<li><router-link to="/original"><i class="icon_microphone"></i></router-link></li>
+			<li><router-link to="/myInfo"><i class="icon_people"></i></router-link></li>
 		</ul>
 	</div>
 </template>
@@ -16,14 +16,17 @@
 			}
 		},
 		methods: {
-			increment: function () {
-					this.counter += 1
-					this.$emit('increment')
-				}
 		}
 	}
 </script>
 <style type="text/css">
+	.bottom_nav ul a {
+		text-align: center;
+		height: 100%;
+		display: inline-block;
+		width: 100%;
+	}
+
 	.bottom_nav {
 		height: 1.16rem;
 		position: fixed;
@@ -41,7 +44,7 @@
 		height: 100%;
 		width: 25%;
 	}
-	.bottom_nav ul li.chioce i {
+	.bottom_nav ul .router-link-active i {
 		background-image: url('../assets/images/bottom_choice.png');
 		width: 37px;
 		height: 32px;

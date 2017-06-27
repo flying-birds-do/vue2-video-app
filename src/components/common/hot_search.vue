@@ -1,6 +1,6 @@
 <template>
 	<div class="hotsearch" >
-		<div class="hot_search_list" v-for="todo in todos">
+		<div class="hot_search_list" v-for="(todo,index) in todos" :class="[(index===1)? 'bgcolor': '']">
 			<div class="hot_search_img fl">
 				<img  :src="todo.search_img">
 			</div>
@@ -48,6 +48,16 @@
 	.hotsearch {
 		margin-top: 0.5rem;
 		margin-bottom: 1.12rem;
+		text-align: left;
+	}
+	.hot_search_list.bgcolor {
+		background:  #fff;
+	}
+	.hot_search_list.bgcolor .hot_search_right h2 {
+		color: #333;
+	}
+	.hot_search_list.bgcolor .hot_search_right  {
+		color: #797979;
 	}
 	.hot_search_list {
 		height: 1.47rem;
@@ -79,7 +89,6 @@
 		font-size: 0.28rem;
 		color: #eaeaea;
 		margin-bottom: 0.1rem;
-		text-align: center;
 		padding-top: 0.15rem;
 	}
 	.hot_search_right  {

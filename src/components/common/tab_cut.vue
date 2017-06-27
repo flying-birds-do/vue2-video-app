@@ -1,8 +1,8 @@
 <template>
 	<div class="tab_cut">
 		<ul class="clearfix">
-			<li class="origin_tab" :class='{isActive:isActive1}'></li>
-			<li class="moli_tab" :class='{isActive:isActive2}'></li>
+			<li class="origin_tab" :class='{isActive:isActive1}' @click="cutstatus(isActive1,'origin_tab')"></li>
+			<li class="moli_tab" :class='{isActive:isActive2}'  @click="cutstatus(isActive2,'moli_tab')"></li>
 		</ul>
 	</div>
 </template>
@@ -12,6 +12,24 @@
 			return {
 				isActive1: true,
 				isActive2: false
+			}
+		},
+		methods: {
+			cutstatus (isActive, origin) {
+				if (isActive) {
+					if (origin === 'origin_tab' || origin === 'moli_tab') {
+						return
+					}
+				} else {
+					if (origin === 'origin_tab') {
+					this.isActive1 = true
+					this.isActive2 = false
+					} else {
+					this.isActive1 = false
+					this.isActive2 = true
+					}
+				}
+               this.$emit('cutstatus', origin)
 			}
 		}
 	}
