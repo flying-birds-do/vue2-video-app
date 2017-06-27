@@ -10,7 +10,7 @@
     <div class="choice_like">
       <p>来选择喜欢的视频类型吧 ...</p>
       <ul class="clearfix">
-        <li class="" v-for="(item,index) in items" :class="[defaultArr.indexOf(item.text) >= 0 ? 'choice1' : '']" @click="choice($event, index)">
+        <li v-for="(item,index) in items" :class="[defaultArr.indexOf(item.text) >= 0 ? 'choice1' : '']" @click="choice($event, index)" :key="index">
           <p class="cirle" :class="{choice: false}">
             <i :class="item.Mainland"></i>
           </p>
