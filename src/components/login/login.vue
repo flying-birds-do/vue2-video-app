@@ -3,8 +3,8 @@
     <header class="headImg"> <img src="../assets/images/headImg.png" alt=""></header>
     <div class="inputEnter">
       <form action="">
-        <p><span class="icon_user"></span><input type="text" class="username" :placeholder="test" v-on:click="palceHold('test')"   v-model='account'></p>
-        <p><span class="icon_password"></span><input type="password" class="password"  :placeholder="text" @click="palceHold" 
+        <p><span class="icon_user"></span><input type="text" class="username" :placeholder="test"   v-model='account' v-focus></p>
+        <p><span class="icon_password"></span><input type="password" class="password"  :placeholder="text" 
           v-model='password'></p>
           <div class="remberPassword"><span @click="doRememberPassword"><input type="checkbox"><i :class="{'remberPass1':remberPass1}"></i>记住密码</span><span>忘记密码？</span></div>
           <button type="submit"  class="loginGet" @click="submitAjax"></button>
@@ -18,11 +18,9 @@
     <span class="icon_noing"></span>
 </footer>
  <alert-text :conShow='content_show' :info_tip='info_tip'></alert-text>
- <Loading v-if="isLoging" :marginTop="marginTop"></Loading>
 </div>
 </template>
 <script>
-    import Loading from './Loading'
     import alertText from '../common/alertText'
     export default {
       name: 'login',
@@ -40,7 +38,6 @@
         }
   },
   components: {
-        Loading,
         alertText
   },
   mounted: function () {
@@ -48,13 +45,6 @@
         // this.loadAccountInfo()
       },
   methods: {
-        palceHold (test) {
-          if (test === 'test') {
-            this.test = ''
-          } else {
-            this.text = ''
-          }
-        },
         submitAjax () {
           if (this.account === 'admin' & this.password === '123456') {
             // this.$router.push({path: '/regsiter/'})

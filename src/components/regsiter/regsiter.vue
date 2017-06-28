@@ -3,14 +3,12 @@
     <header class="headImg"> <img src="../assets/images/resigter_icon.png" alt=""></header>
     <div class="inputEnter">
       <form action="">
-        <p><span class="icon_iphone"></span><input type="text" class="iponeNum" :placeholder="ipone_num"  v-model='iponeNum'  @click="palceHold('ipone_num')"></p>
-        <p><span class="icon_user"></span><input type="text" class="username" :placeholder="user_name"  v-model='userName'   @click="palceHold('user_name')">
+        <p><span class="icon_iphone"></span><input type="text" class="iponeNum" :placeholder="ipone_num"  v-model='iponeNum'></p>
+        <p><span class="icon_user"></span><input type="text" class="username" :placeholder="user_name"  v-model='userName' >
         </p>
-        <p><span class="icon_password"></span><input type="password" class="password"  :placeholder="text_password"  v-model='password'  @click="palceHold('text_password')">
-        <span class="comfi_tip">{{comfi_tip}}</span>
+        <p><span class="icon_password"></span><input type="password" class="password"  :placeholder="text_password"  v-model='password'>
         </p>
-        <p><span class="icon_affirm"></span><input type="text" class="username" :placeholder="affirm" v-model='affirm_password'   @click="palceHold('affirm')">
-        <span class="comfi_double">{{comfi_double}}</span>
+        <p><span class="icon_affirm"></span><input type="text" class="username" :placeholder="affirm" v-model='affirm_password'>
         </p>
           <button type="submit"  class="regsiter" @click="resigSucess"></button>
           <router-link to="/"><button class="Tel"></button></router-link>
@@ -28,8 +26,6 @@
           ipone_num: '手机号',
           user_name: '用户名',
           text_password: '密码',
-          comfi_tip: '密码由6-10位数字加字母组成',
-          comfi_double: '两次输入需要一致',
           affirm: '确认密码',
           text_alert: '您已注册成功',
           iponeNum: '',
@@ -45,19 +41,6 @@
         alertText
   },
   methods: {
-        palceHold (test) {
-          if (test === 'ipone_num') {
-            this.ipone_num = ''
-          } else if (test === 'user_name') {
-            this.user_name = ''
-          } else if (test === 'text_password') {
-            this.text_password = ''
-            this.comfi_tip = ''
-          } else if (test === 'affirm') {
-            this.affirm = ''
-            this.comfi_double = ''
-          }
-        },
         resigSucess () {
           if (this.iponeNum !== '' && this.userName !== '' && this.password !== '') {
             this.content_show = true

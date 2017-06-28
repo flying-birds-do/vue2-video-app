@@ -10,7 +10,7 @@
     <div class="choice_like">
       <p>来选择喜欢的视频类型吧 ...</p>
       <ul class="clearfix">
-        <li v-for="(item,index) in items" :class="[defaultArr.indexOf(item.text) >= 0 ? 'choice1' : '']" @click="choice($event, index)" :key="index">
+        <li v-for="(item,index) in items" :class="[defaultArr.indexOf(item.text) >= 0 ? 'choice1' : '']"  :key="index">
           <p class="cirle" :class="{choice: false}">
             <i :class="item.Mainland"></i>
           </p>
@@ -41,12 +41,12 @@ export default {
         },
         {
           Mainland: 'icon_Comedy',
-          text: 'Romance',
+          text: 'Action',
           chese: '动作'
         },
         {
           Mainland: 'icon_Action',
-          text: 'Action',
+          text: 'Cartoon',
           chese: '卡通'
         },
         {
@@ -83,10 +83,6 @@ export default {
   methods: {
     enterHome () {
       this.$router.push({ path: '/home/' })
-    },
-    choice (el, index) {
-      console.log(el.target)
-      console.log(el)
     }
   }
 }
